@@ -1,0 +1,12 @@
+#code
+*.pyc
+__pycache__/
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+.env
+*.ini
+*.conf
