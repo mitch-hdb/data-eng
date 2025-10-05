@@ -2,33 +2,6 @@ import pandas as pd
 from etl.db import get_conn
 from etl.mysql_helpers import sanitize_df_fill_minus_one
 import numpy as np
-
-
-# def df_to_mysql(df: pd.DataFrame, table: str):
-#     conn = get_conn()
-#     cur = conn.cursor()
-#     # Drop + recreate
-#     cur.execute(f"DROP TABLE IF EXISTS `{table}`;")
-#     # Build schema
-#     col_defs = []
-#     for col, dtype in df.dtypes.items():
-#         if "int" in str(dtype):
-#             col_defs.append(f"`{col}` BIGINT")
-#         elif "float" in str(dtype):
-#             col_defs.append(f"`{col}` DOUBLE")
-#         else:
-#             col_defs.append(f"`{col}` TEXT")
-#     schema = ", ".join(col_defs)
-#     cur.execute(f"CREATE TABLE `{table}` ({schema});")
-
-#     # Insert rows
-#     if not df.empty:
-#         cols = ", ".join([f"`{c}`" for c in df.columns])
-#         placeholders = ", ".join(["%s"] * len(df.columns))
-#         insert_sql = f"INSERT INTO `{table}` ({cols}) VALUES ({placeholders})"
-#         cur.executemany(insert_sql, df.where(pd.notna(df), None).values.tolist())
-#     cur.close()
-#     conn.close()
     
     
 def df_to_mysql(df: pd.DataFrame, table: str):

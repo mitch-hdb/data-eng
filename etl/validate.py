@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from dateutil import parser
 from datetime import date
 import matplotlib.pyplot as plt
